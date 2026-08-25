@@ -121,22 +121,26 @@
   }
   .course-list{display:flex;flex-direction:column;gap:1px;background:var(--border);}
   .course-item{
-    background:#fff;padding:22px 26px;display:flex;align-items:center;justify-content:space-between;
-    gap:16px;flex-wrap:wrap;
+    background:#fff;padding:26px 28px;display:flex;align-items:center;justify-content:space-between;
+    gap:24px;flex-wrap:wrap;
   }
-  .course-name{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--brown-deep);}
-  .course-meta{display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
-  .course-time{font-size:12px;color:var(--text-soft);}
-  .course-price-block{display:flex;align-items:baseline;gap:10px;}
-  .course-price-orig{font-size:12px;color:#b0a89a;}
-  .course-price-trial{font-size:20px;font-weight:700;color:var(--gold);font-family:var(--serif);}
-  .course-price-trial .label{font-size:10px;color:var(--text-soft);font-weight:400;margin-right:4px;text-decoration:none;}
-  .course-vip{
-    display:flex;align-items:center;gap:6px;background:linear-gradient(120deg,#3d3024,#5a4632);
-    color:#f1e6d3;padding:6px 14px;border-radius:2px;font-size:12px;white-space:nowrap;
-  }
-  .course-vip .crown{color:var(--gold-pale);font-size:11px;}
-  .course-vip b{font-family:var(--serif);font-size:14px;color:#fff;margin-left:2px;}
+  .course-body{flex:1;min-width:220px;}
+  .course-name{font-family:var(--serif);font-size:17px;font-weight:600;color:var(--brown-deep);margin-bottom:6px;}
+  .course-time{font-size:12px;color:var(--text-soft);white-space:nowrap;display:block;margin-bottom:8px;}
+  .course-desc{font-size:13px;color:var(--text-body);line-height:1.75;max-width:460px;}
+  .course-meta{display:flex;align-items:center;gap:24px;flex-shrink:0;flex-wrap:wrap;}
+  .course-price-block{text-align:right;}
+  .course-price-orig{font-size:12px;color:#b0a89a;margin-bottom:6px;}
+  .course-price-orig .currency-inline{font-size:10px;letter-spacing:0.5px;margin-right:1px;}
+  .course-price-label{font-size:11px;letter-spacing:2px;color:var(--gold);margin-bottom:0;}
+  .course-price-value{font-family:var(--serif);font-size:26px;font-weight:500;color:var(--brown-deep);}
+  .course-price-value .currency{font-family:var(--sans);font-size:13px;font-weight:500;letter-spacing:1px;color:inherit;margin-right:3px;vertical-align:2px;}
+  .course-price-only .course-price-value{color:var(--gold);}
+  .course-vip{text-align:center;padding:10px 18px;border-radius:2px;background:linear-gradient(120deg,#3d3024,#5a4632);min-width:110px;}
+  .course-vip .crown{color:var(--gold-pale);font-size:12px;display:block;margin-bottom:4px;}
+  .course-vip .course-vip-label{font-size:10px;letter-spacing:1.5px;color:var(--gold-pale);margin-bottom:2px;}
+  .course-vip .course-vip-value{font-family:var(--serif);font-size:20px;font-weight:500;color:#fff;}
+  .course-vip .course-vip-value .currency{font-family:var(--sans);font-size:11px;font-weight:500;letter-spacing:1px;color:#d9cdbd;margin-right:2px;vertical-align:1px;}
 
   /* ---------- Why ---------- */
   .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
@@ -250,67 +254,151 @@
       <p class="section-lead">我們的課程依不同膚況改善需求客製化調整，到店諮詢時，美容顧問會依您的膚況建議最合適的保養課程。</p>
 
       <div class="course-group">
-        <div class="course-group-title">臉部</div>
+        <div class="course-group-title">四大專業皮膚管理課程</div>
         <div class="course-list">
           <div class="course-item">
-            <div class="course-name">類醫美微整凍齡課程</div>
-            <div class="course-meta">
+            <div class="course-body">
+              <div class="course-name">類醫美微整凍齡課程</div>
               <span class="course-time">服務時間 80 分鐘</span>
+              <div class="course-desc">以高濃度精華與專業手法，撫平細紋與鬆弛感，重現緊緻澎潤的年輕輪廓。</div>
+            </div>
+            <div class="course-meta">
               <div class="course-price-block">
-                <span class="course-price-orig">原價 $4,500</span>
-                <span class="course-price-trial"><span class="label">體驗價</span>$2,500</span>
+                <div class="course-price-orig">原價 <span class="currency-inline">NT</span>4,500</div>
+                <div class="course-price-label">體驗價</div>
+                <div class="course-price-value"><span class="currency">NT</span>2,500</div>
               </div>
-              <div class="course-vip"><span class="crown">♛</span>白金會員<b>$999</b></div>
+              <div class="course-vip">
+                <span class="crown">♛</span>
+                <div class="course-vip-label">白金會員</div>
+                <div class="course-vip-value"><span class="currency">NT</span>999</div>
+              </div>
             </div>
           </div>
           <div class="course-item">
-            <div class="course-name">淨痘皮膚管理課程</div>
-            <div class="course-meta">
+            <div class="course-body">
+              <div class="course-name">淨痘皮膚管理課程</div>
               <span class="course-time">服務時間 80 分鐘</span>
+              <div class="course-desc">深層淨化搭配皮脂調理，舒緩痘況與發炎，讓毛孔清爽、膚況趨於穩定。</div>
+            </div>
+            <div class="course-meta">
               <div class="course-price-block">
-                <span class="course-price-orig">原價 $4,500</span>
-                <span class="course-price-trial"><span class="label">體驗價</span>$2,500</span>
+                <div class="course-price-orig">原價 <span class="currency-inline">NT</span>4,500</div>
+                <div class="course-price-label">體驗價</div>
+                <div class="course-price-value"><span class="currency">NT</span>2,500</div>
               </div>
-              <div class="course-vip"><span class="crown">♛</span>白金會員<b>$999</b></div>
+              <div class="course-vip">
+                <span class="crown">♛</span>
+                <div class="course-vip-label">白金會員</div>
+                <div class="course-vip-value"><span class="currency">NT</span>999</div>
+              </div>
             </div>
           </div>
           <div class="course-item">
-            <div class="course-name">DNA皮膚管理課程</div>
-            <div class="course-meta">
+            <div class="course-body">
+              <div class="course-name">DNA皮膚管理課程</div>
               <span class="course-time">服務時間 80 分鐘</span>
+              <div class="course-desc">從細胞層級調理膚況，喚醒肌膚自我修復力，改善暗沉與粗糙觸感。</div>
+            </div>
+            <div class="course-meta">
               <div class="course-price-block">
-                <span class="course-price-orig">原價 $4,500</span>
-                <span class="course-price-trial"><span class="label">體驗價</span>$2,500</span>
+                <div class="course-price-orig">原價 <span class="currency-inline">NT</span>4,500</div>
+                <div class="course-price-label">體驗價</div>
+                <div class="course-price-value"><span class="currency">NT</span>2,500</div>
               </div>
-              <div class="course-vip"><span class="crown">♛</span>白金會員<b>$999</b></div>
+              <div class="course-vip">
+                <span class="crown">♛</span>
+                <div class="course-vip-label">白金會員</div>
+                <div class="course-vip-value"><span class="currency">NT</span>999</div>
+              </div>
             </div>
           </div>
           <div class="course-item">
-            <div class="course-name">淨膚皮膚管理課程</div>
-            <div class="course-meta">
+            <div class="course-body">
+              <div class="course-name">淨膚皮膚管理課程</div>
               <span class="course-time">服務時間 80 分鐘</span>
+              <div class="course-desc">溫和淨化角質與毛孔髒污，平衡油水分泌，找回細緻淨透的膚觸。</div>
+            </div>
+            <div class="course-meta">
               <div class="course-price-block">
-                <span class="course-price-orig">原價 $4,500</span>
-                <span class="course-price-trial"><span class="label">體驗價</span>$2,500</span>
+                <div class="course-price-orig">原價 <span class="currency-inline">NT</span>4,500</div>
+                <div class="course-price-label">體驗價</div>
+                <div class="course-price-value"><span class="currency">NT</span>2,500</div>
               </div>
-              <div class="course-vip"><span class="crown">♛</span>白金會員<b>$999</b></div>
+              <div class="course-vip">
+                <span class="crown">♛</span>
+                <div class="course-vip-label">白金會員</div>
+                <div class="course-vip-value"><span class="currency">NT</span>999</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       <div class="course-group">
-        <div class="course-group-title">身體 SPA</div>
+        <div class="course-group-title">美胸美體</div>
         <div class="course-list">
           <div class="course-item">
-            <div class="course-name">女王級美胸循環課程</div>
-            <div class="course-meta">
+            <div class="course-body">
+              <div class="course-name">女王級美胸循環課程</div>
               <span class="course-time">服務時間 80 分鐘</span>
+              <div class="course-desc">專屬美胸循環手法，促進淋巴代謝，喚醒胸型曲線與肌膚彈性。</div>
+            </div>
+            <div class="course-meta">
               <div class="course-price-block">
-                <span class="course-price-orig">原價 $4,500</span>
-                <span class="course-price-trial"><span class="label">體驗價</span>$2,500</span>
+                <div class="course-price-orig">原價 <span class="currency-inline">NT</span>4,500</div>
+                <div class="course-price-label">體驗價</div>
+                <div class="course-price-value"><span class="currency">NT</span>2,500</div>
               </div>
-              <div class="course-vip"><span class="crown">♛</span>白金會員<b>$999</b></div>
+              <div class="course-vip">
+                <span class="crown">♛</span>
+                <div class="course-vip-label">白金會員</div>
+                <div class="course-vip-value"><span class="currency">NT</span>999</div>
+              </div>
+            </div>
+          </div>
+          <div class="course-item">
+            <div class="course-body">
+              <div class="course-name">黑科技曲線美體</div>
+              <span class="course-time">服務時間 120 分鐘</span>
+              <div class="course-desc">運用科技儀器雕塑曲線，緊實鬆弛部位，重塑立體有型的身形線條。</div>
+            </div>
+            <div class="course-meta">
+              <div class="course-price-block course-price-only">
+                <div class="course-price-label">原價</div>
+                <div class="course-price-value"><span class="currency">NT</span>4,800</div>
+              </div>
+              <div class="course-vip">
+                <span class="crown">♛</span>
+                <div class="course-vip-label">白金會員</div>
+                <div class="course-vip-value"><span class="currency">NT</span>4,000</div>
+              </div>
+            </div>
+          </div>
+          <div class="course-item">
+            <div class="course-body">
+              <div class="course-name">全身舒壓/撥筋</div>
+              <span class="course-time">服務時間 130 分鐘</span>
+              <div class="course-desc">深層撥筋放鬆緊繃肌肉，促進循環代謝，舒緩全身痠痛與疲勞感。</div>
+            </div>
+            <div class="course-meta">
+              <div class="course-price-block course-price-only">
+                <div class="course-price-label">原價</div>
+                <div class="course-price-value"><span class="currency">NT</span>3,300</div>
+              </div>
+            </div>
+          </div>
+          <div class="course-item">
+            <div class="course-body">
+              <div class="course-name">全身體雕</div>
+              <span class="course-time">服務時間 90 分鐘</span>
+              <div class="course-desc">針對局部曲線加強雕塑，緊緻肌膚，找回勻稱緊實的身形比例。</div>
+            </div>
+            <div class="course-meta">
+              <div class="course-price-block course-price-only">
+                <div class="course-price-label">原價</div>
+                <div class="course-price-value"><span class="currency">NT</span>2,100</div>
+              </div>
             </div>
           </div>
         </div>
