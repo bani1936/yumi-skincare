@@ -183,6 +183,18 @@
   .voice-card .quote-mark{font-family:var(--serif);font-size:44px;color:var(--gold-pale);line-height:1;margin-bottom:6px;}
   .voice-card p{font-size:13px;color:var(--text-body);margin-bottom:18px;min-height:70px;}
   .voice-card .who{font-size:12px;color:var(--gold);font-weight:600;}
+
+  /* Scroll Reveal 滾動顯現動畫 */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s ease;}
+  .reveal.is-visible{opacity:1;transform:translateY(0);}
+  .reveal-group .reveal:nth-child(1){transition-delay:0s;}
+  .reveal-group .reveal:nth-child(2){transition-delay:.12s;}
+  .reveal-group .reveal:nth-child(3){transition-delay:.24s;}
+  .reveal-group .reveal:nth-child(4){transition-delay:.36s;}
+  .reveal-group .reveal:nth-child(5){transition-delay:.48s;}
+  @media (prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
   .voice-placeholder-note{
     text-align:center;margin-top:28px;font-size:12px;color:var(--text-soft);
     border-top:1px dashed var(--border);padding-top:18px;
@@ -261,7 +273,7 @@
 
   <!-- ============ ABOUT / PHILOSOPHY ============ -->
   <section id="about" class="philo">
-    <div class="container">
+    <div class="container reveal">
       <div class="eyebrow" style="justify-content:center;">OUR PHILOSOPHY</div>
       <blockquote>肌膚會說話，我們的工作是先學會傾聽。</blockquote>
       <p>米米美學不做罐頭式的保養建議。每一次諮詢，我們都從肌膚檢測與一段對話開始——了解您的膚況、生活作息與困擾，再為您找出適合的調理產品組合。我們相信，保養不只是塗抹，而是一段被理解、被陪伴的過程。</p>
@@ -467,18 +479,18 @@
       <div class="eyebrow" style="justify-content:center;">WHY YUMÍ</div>
       <h2 class="section-title" style="text-align:center;">我們把「一次保養」<br/>做成「一段被理解的關係」</h2>
       <p class="section-lead">&nbsp;</p>
-      <div class="why-grid">
-        <div class="why-item">
+      <div class="why-grid reveal-group">
+        <div class="why-item reveal">
           <div class="why-icon">✓</div>
           <h3>免費肌膚諮詢</h3>
           <p>隨時線上詢問肌膚問題，針對您的肌膚情況做合適的調整搭配。</p>
         </div>
-        <div class="why-item">
+        <div class="why-item reveal">
           <div class="why-icon">◆</div>
           <h3>專業系列保養品</h3>
           <p>採用 GLOBELADY 高端植萃保養品，成分天然透明，膚觸與效果都能親自體驗。</p>
         </div>
-        <div class="why-item">
+        <div class="why-item reveal">
           <div class="why-icon">♡</div>
           <h3>一對一客製規劃</h3>
           <p>沒有罐頭式建議，依你的膚況與生活習慣，調整居家保養建議。</p>
@@ -510,18 +522,18 @@
       <div class="eyebrow" style="justify-content:center;">CUSTOMER VOICES</div>
       <h2 class="section-title" style="text-align:center;">她們的保養日常</h2>
       <p class="section-lead">&nbsp;</p>
-      <div class="voice-grid">
-        <div class="voice-card">
+      <div class="voice-grid reveal-group">
+        <div class="voice-card reveal">
           <div class="quote-mark">"</div>
           <p>我覺得改善最多的部分是痘痘變少了，毛孔也變小了，生理期來也不太會長太多大顆的紅痘痘，超感動🥹長期做醫美各種課程比較下來，覺得進階皮膚管理真的看得到效果和希望～真的很感動</p>
           <div class="who">陳小姐・淨痘皮膚管理</div>
         </div>
-        <div class="voice-card">
+        <div class="voice-card reveal">
           <div class="quote-mark">"</div>
           <p>其實一開始剛做完臉沒有太大的感受，那時候說會淡斑，我心裡都不太相信，覺得是誇大哈哈哈，其實每天看自己也覺得沒什麼變化，現在回去看照片差超多！</p>
           <div class="who">黃小姐・58淨膚皮膚管理</div>
         </div>
-        <div class="voice-card">
+        <div class="voice-card reveal">
           <div class="quote-mark">"</div>
           <p>當初沒有想過拉提課程不只改變我的臉型，也改變我的膚質，甚至人參霜才厚敷兩天睡覺就改善我的眼袋黑眼圈，黑眼圈是我一直以來的困擾，我很常過敏就算早睡也無法改善這個問題，是我用過這麼多大品牌裡最有感的💓💓</p>
           <div class="who">陳小姐・輪廓緊緻拉提V臉課程</div>
@@ -590,5 +602,23 @@
     <div style="margin-top:10px;">© 2026 Yumí 米米美學. All rights reserved. 高端皮膚管理</div>
   </footer>
 
+  <script>
+    (function(){
+      var revealEls = document.querySelectorAll('.reveal');
+      if (!('IntersectionObserver' in window)) {
+        revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(function(el){ observer.observe(el); });
+    })();
+  </script>
 </body>
 </html>
